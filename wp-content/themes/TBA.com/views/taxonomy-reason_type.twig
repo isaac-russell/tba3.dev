@@ -1,0 +1,53 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<div class="container">
+		{# What is the deal? Everytime I put a row here my rightside widget gets bumped down, are the mediq queries out of sink with my container? #}
+		
+		<div class="row">
+	     <div class="col-md-9">
+
+		{# <pre>This is a taxonomy-recipe_type.twig</pre> #}
+		{% set term = TimberTerm(term) %}
+		{# {{term.name}} #}
+		
+		{% for post in posts %}
+			{# {% include ['tease-'~post.post_type~'.twig',
+			 'tease.twig'] %}
+			 #}
+			 {# {{dump(post)}} #}
+	
+			<div class="row">
+				<div class="col-md-9">
+					<header>
+						<h2 class="article-title">{{post.title}}</h2>
+					</header>
+				</div>
+			</div>
+		
+		<section>
+				<div class="col-md-7">
+		     		<h3>{{options.foods_subtitle}}</h3>
+		     		<p>{{post.get_field('about_reasons')}}</p>
+		     		</div>
+
+				<div class="col-md-5">
+					{% for item in post.get_field('reasons_photos') %}
+							<img src="{{TimberImage(item.reasons_image).src|resize(400)}}">
+					{% endfor %}
+				</div>
+		</section>
+
+		{% endfor %}
+
+		</div><!--end col-md-9-->
+
+			<div class="col-md-3">
+				{{rightside_widgets}}
+			</div><!--end col-md-3-->
+			
+		</div><!--end row-->
+
+	</div><!--end container-->
+
+{% endblock %}

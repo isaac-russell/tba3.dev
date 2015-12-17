@@ -1,0 +1,1 @@
+$(document).ready(function(){var c=$("#nav-main"),l=$("#nav-link");l.click(function(){return console.log("clicked!"),c.toggleClass("active"),l.toggleClass("active"),!1;console.log("clicked!")})});

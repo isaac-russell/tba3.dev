@@ -1,0 +1,75 @@
+
+// ---
+// Nav
+// ---
+// I like this toggle menu a lot: https://codepen.io/bradfrost/pen/sHvaz
+
+// Base mobile nav styles here.
+
+
+.nav-main {
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.5s ease;
+	&.active {
+		max-height: $screen-md;
+		}
+
+	@include bp(md) {
+		max-height: none;
+	}
+
+}
+
+
+.nav-items {
+	list-style-type: none;
+	padding-left: 0;
+	padding-top: 2rem;
+	text-align: center;
+
+
+	@include bp(md) {
+		& > li {
+			display: inline-block;
+		}
+			
+	}
+	
+}
+
+	.nav-item-link {
+		padding: 1.4rem; 
+		@include upperspace;
+		@include bp(md) {
+		border-top: 1px solid #808080;
+		
+	}
+
+	}
+	a.nav-item-link {
+			display: block;
+			padding: 0.8em;
+			position: relative;
+			@include bp(xs) {
+			border-bottom: 1px solid #808080;
+		
+
+	}
+
+
+}
+
+
+// Link to open the nav 
+
+.nav-link {
+
+	@include bp(md) {
+		display: none;
+
+	}
+	&.active {
+		color: blue;
+	}
+}

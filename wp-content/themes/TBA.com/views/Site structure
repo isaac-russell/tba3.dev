@@ -1,0 +1,79 @@
+
+
+HOME PAGE
+
+Section 1
+
+Image (use featured recipe image)
+Link to a featured recipe
+Excerpt to featured recipe
+Link to recipe categories page (ie Appetizers, Main Dishes, Dips & Spreads)
+
+Section 2
+
+Image (use featured recipe image)
+Link to a featured health article
+Link to health articles
+
+Section 3
+
+Image (use featured recipe image)
+Link to a featured product
+Link to product articles
+
+
+RECIPES (Custom post type)
+
+//this will be a custom post type called "Recipes"; Then I will have a taxonomy or term called "Recipe Type"; Withen the Recipe Types I will have the various categories (ie Appetizers, Main Dishes, Dips & Spreads)
+
+Section 1
+
+Appetizers
+4 images of various main dishes
+Link (see more) links to appetizer blog (posts).
+
+Section 2
+
+Main Dishes
+4 images of various main dishes
+Link (see more) links to main dishes blog (posts).
+
+Section 3
+
+
+Main Dishes
+4 images of various main dishes
+Link (see more) links to Dips & Spread blog (posts).
+
+BLOG POSTS
+Title of Recipe
+Recipe Image
+Title: Ingredients
+List of Ingredients
+About: Story about recipe
+
+SideBar:
+Search Box
+Index of recipes
+
+
+
+Home Page
+	Featured Recipe - Relationship field, post type Recipe
+	Feature Article - Relationship field, post type Article
+	
+All Recipes Page
+	Appetizers - feed of 3 Recipes categorized Apps.
+		See all Appetizer Recipes
+	Breakfast - feed of 3 Recipes categorized Break.
+		See all Breakfast Recipes
+	etc..
+Recipe Type - Taxonomy
+	for t in terms (defined in PHP template)
+		for post in t.get_posts (getting the posts from the term - probably want to do in the PHP file)
+		see all recipes in taxonomy - t.link
+
+
+
+
+

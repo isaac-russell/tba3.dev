@@ -1,0 +1,151 @@
+{% extends "base.twig" %}
+
+{% block header %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h1 class="hdr-logo" role="banner">
+					<a class="hdr-logo-link" href="{{site.link}}" rel="home">{{site.name}}</a>
+				</h1>
+			</div>
+			<div class="col-md-8">
+				{# This is our Navigation #}
+				{% include 'partials/nav.twig' %}
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="home-banner text-center col-md-12">
+				<h1 class="banner-tagline">{{post.tag_line}}</h1>
+				<p class="banner-paragraph">{{post.paragraph}}</p>
+			</div>
+		</div><!--End row div-->
+	</div><!--end container-->
+{% endblock %}
+
+{% block content %}
+	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<section class="article-content">
+			<div class="article-body">
+				<div class="container">
+					<div class="row">
+						{# Loop through repeater field where content_set represents each row in repeater #}
+						{% for content_set in post.get_field('featured_content') %}
+							
+							{# We returned the post ID, so get the entire object via TimberPost #}
+							{% set page = TimberPost(content_set.linked_page) %}
+
+							
+							{# Now, loop through the connected_content array that is part of each content_set #}
+							{% for item in content_set.connected_content %}
+								
+								{# Get the entire post object since we only returned the Post ID #}
+								{% set item = TimberPost(item) %}
+								
+								<a href="{{item.link}}">
+									
+									<div class="col-md-6">
+										<img src="{{item.thumbnail.src|resize(400, 400)}}">
+									</div>
+									{# This markup is repeated for each connected post #}
+									
+									<h2 class="text-center">{{item.title}}</h2>
+								</a>
+
+								<p class="text-center">{{item.post_excerpt}}</p>
+															
+								{# Link the single recipe view #}
+								<p><a href="{{item.link}}">See this recipe &rarr;</a></p>
+
+								{# Access the TimberPost object (set to be page above) like you would any other "post" #}
+							<a href="{{page.link}}">See All {{page.title}} &rarr;</a>
+							{% endfor %}
+						{% endfor %}
+
+						</div><!--endrow-->
+
+						{# The "Food" loop for styling purposes #}
+
+				<div class="row">
+						{# Loop through repeater field where content_set represents each row in repeater #}
+						{% for content_set in post.get_field('featured_content_food') %}
+							
+							{# We returned the post ID, so get the entire object via TimberPost #}
+							{% set page = TimberPost(content_set.linked_page_food) %}
+
+							
+							{# Now, loop through the connected_content array that is part of each content_set #}
+							{% for item in content_set.connected_content_food %}
+								
+								{# Get the entire post object since we only returned the Post ID #}
+								{% set item = TimberPost(item) %}
+								
+								<a href="{{item.link}}">
+									
+									<div class="col-md-6 pull-right">
+										<img src="{{item.thumbnail.src|resize(400, 400)}}">
+									</div>
+									{# This markup is repeated for each connected post #}
+									
+									<h2 class="text-center">{{item.title}}</h2>
+								</a>
+
+								<p class="text-center">{{item.post_excerpt}}</p>
+															
+								{# Link the single recipe view #}
+								<p><a href="{{item.link}}">See this recipe &rarr;</a></p>
+
+								{# Access the TimberPost object (set to be page above) like you would any other "post" #}
+							<a href="{{page.link}}">See All {{page.title}} &rarr;</a>
+							{% endfor %}
+						{% endfor %}
+
+						</div><!--endrow-->	
+
+							{# The "Reasons" loop for styling purposes #}
+
+				<div class="row">
+						{# Loop through repeater field where content_set represents each row in repeater #}
+						{% for content_set in post.get_field('featured_content_reasons') %}
+							
+							{# We returned the post ID, so get the entire object via TimberPost #}
+							{% set page = TimberPost(content_set.linked_page_reasons) %}
+
+							
+							{# Now, loop through the connected_content array that is part of each content_set #}
+							{% for item in content_set.connected_content_reasons %}
+								
+								{# Get the entire post object since we only returned the Post ID #}
+								{% set item = TimberPost(item) %}
+								
+								<a href="{{item.link}}">
+									
+									<div class="col-md-6">
+										<img src="{{item.thumbnail.src|resize(400, 400)}}">
+									</div>
+									{# This markup is repeated for each connected post #}
+									
+									<h2 class="text-center">{{item.title}}</h2>
+								</a>
+
+								<p class="text-center">{{item.post_excerpt}}</p>
+															
+								{# Link the single recipe view #}
+								<p><a href="{{item.link}}">See this reason &rarr;</a></p>
+
+								{# Access the TimberPost object (set to be page above) like you would any other "post" #}
+							<a href="{{page.link}}">See All {{page.title}} &rarr;</a>
+							{% endfor %}
+						{% endfor %}
+
+						</div><!--endrow-->	
+
+					</div><!--endcontainer-->
+
+				</div><!--article body-->
+
+			</section>
+
+
+</article>
+{% endblock %}

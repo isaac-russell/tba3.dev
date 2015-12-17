@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<h2 class="article-title">{{post.title}}</h2>
+
+				<div class="intro-text">
+			     	<img src="{{TimberImage(post.ad_image).src|resize(400)}}">
+			     	<br>
+			     	{{post.get_field('ad_text')}}
+				</div>	
+			</section>
+			
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<div class="container">
+					<div class="row">
+						<h1 class="text-center">{{post.title}}</h1>
+						<div class="article-body">
+							{{post.content}}
+						</div>
+					</div><!--End Row-->
+					{# Loop through terms we retrieved in the PHP file #}
+						<div class="row">
+							{% for term in types %}
+								<h3 class="text-center">{{term.name}}</h3>
+								{# Get Recipes from term and loop through them #}
+								
+								{% for recipe in term.get_posts('numberposts=4') %}
+									<div class="col-md-3 col-sm-6 col-xs-6">
+									<h5>{{recipe.title}}</h5>
+									<img src="{{TimberImage(recipe.get_field('recipe_photo')).src|resize(300, 300)}}" />
+									</div>
+								{% endfor %}
+						
+							<br>
+							{# Link to archive of Cocktails with that term #}
+							<strong><a href="{{term.link}}">All {{term.name}} Recipes</a></strong>
+
+							{% endfor %}
+						</div><!--End Row-->
+				</div><!--End Container-->
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="container">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<header>
+			</header>
+				<section class="article-content">
+					<div class="text-center">
+						<h1>{{post.title}}</h1>
+					</div>
+					{# <div class="article-body">
+						{{post.content}}
+					</div> #}
+				</section>
+
+				<section class="row">
+		     	<div class="col-md-8">
+		     		<h3>{{options.reasons_subtitle}}</h3>
+		     		<p>{{post.get_field('about_reasons')}}</p>
+		     	</div>
+				<div class="col-md-4">
+					{% for item in post.get_field('reasons_photos') %}
+						<img src="{{TimberImage(item.reasons_image).src|resize(400)}}">
+					{% endfor %}
+		     	</div>
+		     </section><!--end photo & ingredients div-->	
+		</article>
+	</div><!-- /container -->
+{% endblock %}
+
+

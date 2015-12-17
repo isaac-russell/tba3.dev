@@ -1,0 +1,58 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<div class="container">
+			<div class="col-md-9">
+		{# <pre>This is a taxonomy-recipe_type.twig</pre> #}
+		{% set term = TimberTerm(term) %}
+		{# {{term.name}} #}
+		
+		{% for post in posts %}
+			{# {% include ['tease-'~post.post_type~'.twig',
+			 'tease.twig'] %}
+			 #}
+			 {# {{dump(post)}} #}
+		<header class="row text-center">
+			<h2 class="article-title">{{post.title}}</h2>
+		</header>
+
+		<div class="row">
+			<div class="col-md-4 well">
+			<h3>{{options.ingredients_section_title}}</h3>
+				{% for item in post.get_field('recipe_ingredients') %}
+				<ul>
+					<li>
+						{{item.ingredient}}
+					</li>
+				</ul>
+		{% endfor %}
+			</div>
+			 
+			<div class="col-md-5">
+				<img src="{{TimberImage(post.get_field('recipe_photo')).src|resize(400, 400)}}" />
+			</div>
+		</div><!--End row-->
+					
+		<div class="row">
+			<div class="col-md-9">
+				<h3>{{options.recipe_section_title}}
+				</h3>
+				{{post.recipe_instructions}}
+				<hr>
+				<h3>{{options.recipe_story_title}}</h3>
+				<hr>
+				{{post.recipe_story}}
+			</div>
+		</div><!--end row-->
+			 
+		{% endfor %}
+	</div><!--end col-md-9-->
+
+	{# Do I have to open and close the loop then put rightside_widgets in the grid then open and close the loop? No, just make sure it's withen the container and outside the loop. #}
+	<div class="col-md-3">	
+		{{rightside_widgets}}
+	</div>
+
+	</div><!--end container-->
+
+{% endblock %}

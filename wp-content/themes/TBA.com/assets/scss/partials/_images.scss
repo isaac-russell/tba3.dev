@@ -1,0 +1,29 @@
+.features_image {
+	background-color: $teal;
+	width: 20px;
+
+	@include bp(xs) {
+		background-color: red;
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+
+		
+	}
+
+	@include bp(md) {
+		background-color: blue;
+		display: block;
+  		margin-left: auto;
+  		margin-right: auto;
+		
+	}
+
+		@include bp(lg) {
+		background-color: orange;
+		margin-left: 7rem;
+		
+	}
+
+} 
+
