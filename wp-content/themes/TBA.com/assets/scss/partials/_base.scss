@@ -42,7 +42,14 @@ img {
 
 }
 
+li {
+	list-style-type: none;
+}
 
+h4.widget-title {
+	color: $link-color;
+	text-align: center;
+}
 
 // ---
 // Media
@@ -54,6 +61,23 @@ img {
 // ---
 // Footer
 // ---
+
+.base-footer {
+	max-width:100%;
+	background-color: $background-colortwo;
+}
+
+#footer {
+	background-color: darken($background-colortwo, 20%);
+}
+
+// $main-color: 		#14577F;
+// $supporting-color:	#00C7E0;
+// $background-color:	#E7DDF7;
+// $background-colortwo:	#888291;
+// $accent-color:		#FF6269;
+// $auxiliary-color:	#FF848D;
+	
 
 
 

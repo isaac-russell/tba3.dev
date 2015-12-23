@@ -8,8 +8,15 @@
  */
 
 // Getting the widgets from what we registered in widgets.php
-// 'footer-widget' needs to match the widget 'id'
+
+// 'footer-widget' needs to match the widget 'id' and 'footer_widgets' needs to match $context['footer_widgets'] that you registered in the functions.php file.
+
 $data['footer_widgets'] = Timber::get_widgets('footer-widget');
+$data['footerfr_widgets'] = Timber::get_widgets('footer-widgetfarright');
+
+$data['footermr_widgets'] = Timber::get_widgets('footer-widgetmidleft');
+$data['footerml_widgets'] = Timber::get_widgets('footer-widgetmidright');
+
 $data['rightside_widgets'] = Timber::get_widgets('rightside-widget');
 
 // Send that data to sidebar.twig and to display that, you have to include sidebar.twig
@@ -30,5 +37,6 @@ Option 2: make the data globally available (View stage)
 	Inside functions.php create a context variable calling get_sidebar('sidebar.php')
 
 */
-
+		
+		
 

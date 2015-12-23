@@ -1,6 +1,6 @@
 <?php
 /**
- * The Template for displaying all single posts
+ * The Template for displaying rightwidgets on every page needed. 
  *
  *
  * @package  WordPress
@@ -22,7 +22,7 @@ Timber::render( array( 'rightside-widgets.twig' ), $data );
 /*
 
 1. registering widgets/sidebar in lib/widgets.php (Model)
-2. hook that registration into WP when it runs (Model)
+2. hook that registration into WP when it runs (functions.php) (Model)
 3. get the widget data inside of sidebar.php (Controller)
 4. render the markup which can happen in two ways: (View)
 

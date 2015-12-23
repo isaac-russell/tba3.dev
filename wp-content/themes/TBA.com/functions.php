@@ -46,8 +46,12 @@ class StarterSite extends TimberSite {
 		$context['options'] = get_fields('options');
 
 		// We want footer widgets on every page, so add it to the global context
+		// So for example 'footer_widgets' is {{footer_widgets}} that gets inserted into the code.
 		$context['footer_widgets'] = Timber::get_sidebar('sidebar.php');
 		$context['rightside_widgets'] = Timber::get_sidebar('sidebar-rightwidgets.php');
+		$context['footerml_widgets'] = Timber::get_sidebar('sidebar-footerml.php');
+		$context['footermr_widgets'] = Timber::get_sidebar('sidebar-footermr.php');
+		$context['footerfr_widgets'] = Timber::get_sidebar('sidebar-footerfr.php');
 		
 		return $context;
 	}

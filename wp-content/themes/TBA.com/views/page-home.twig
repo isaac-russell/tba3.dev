@@ -55,10 +55,10 @@
 								<p class="text-center">{{item.post_excerpt}}</p>
 															
 								{# Link the single recipe view #}
-								<p><a href="{{item.link}}">See this recipe &rarr;</a></p>
+								<p><a href="{{item.link}}">See this recipe</a></p>
 
 								{# Access the TimberPost object (set to be page above) like you would any other "post" #}
-							<a href="{{page.link}}">See All {{page.title}} &rarr;</a>
+							<a href="{{page.link}}">See All {{page.title}}</a>
 							{% endfor %}
 						{% endfor %}
 
@@ -93,10 +93,10 @@
 								<p class="text-center">{{item.post_excerpt}}</p>
 															
 								{# Link the single recipe view #}
-								<p><a href="{{item.link}}">See this recipe &rarr;</a></p>
+								<p><a href="{{item.link}}">See this article</a></p>
 
 								{# Access the TimberPost object (set to be page above) like you would any other "post" #}
-							<a href="{{page.link}}">See All {{page.title}} &rarr;</a>
+							<a href="{{page.link}}">See {{page.title}}</a>
 							{% endfor %}
 						{% endfor %}
 
@@ -131,10 +131,12 @@
 								<p class="text-center">{{item.post_excerpt}}</p>
 															
 								{# Link the single recipe view #}
-								<p><a href="{{item.link}}">See this reason &rarr;</a></p>
+								<p><a href="{{item.link}}">Learn more</a></p>
+
+								{# I want to insert this svg as an image right after learn more. Why isn't this working? Is my path wrong?<img src="/assets/img/svgs/arrow-right.svg" alt""/> #}
 
 								{# Access the TimberPost object (set to be page above) like you would any other "post" #}
-							<a href="{{page.link}}">See All {{page.title}} &rarr;</a>
+							<a href="{{page.link}}">See {{page.title}}</a>
 							{% endfor %}
 						{% endfor %}
 
