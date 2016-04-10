@@ -6,10 +6,11 @@
 
 // Base mobile nav styles here.
 
+$desktopClass: desktop-screen;
 
 .nav-main {
-	max-height: 0;
-	overflow: hidden;
+	//max-height: 0;
+	//overflow: hidden;
 	transition: all 0.5s ease;
 	&.active {
 		max-height: $screen-md;
@@ -21,29 +22,27 @@
 
 }
 
-
 .nav-items {
 	list-style-type: none;
 	padding-left: 0;
 	padding-top: 2rem;
 	text-align: center;
 
-
 	@include bp(md) {
 		& > li {
 			display: inline-block;
 		}
-			
+
 	}
-	
+
 }
 
 	.nav-item-link {
-		padding: 1.4rem; 
+		padding: 1.4rem;
 		@include upperspace;
 		@include bp(md) {
-		
-		
+
+
 	}
 
 	}
@@ -52,23 +51,47 @@
 			padding: 0.8em;
 			position: relative;
 			@include bp(xs) {
-			
-		
+
+
 
 	}
 
 
 }
+#nav-link {
+  @include bp(md) {
+	display: none;
+  }
+}
+
+#nav-main {
+  display: none;
+}
+
+.#{$desktopClass} #nav-main {
+  display: block;
+}
+
+.#{$desktopClass} {
+  .nav-item {
+	position: relative;
+  }
+  .nav-drop {
+	position: absolute;
+	left: 0;
+	top: 1.8em;
+	padding: 0.8em;
+  }
+}
+//Hide all sub menus
+.nav-drop {
+  display: none;
+}
 
 
-// Link to open the nav 
+// Link to open the nav
 
 .nav-link {
-
-	@include bp(md) {
-		display: none;
-
-	}
 	&.active {
 		color: blue;
 	}
